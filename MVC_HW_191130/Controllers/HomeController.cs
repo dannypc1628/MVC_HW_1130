@@ -31,7 +31,7 @@ namespace MVC_HW_191130.Controllers
 
         public ActionResult Money()
         {
-            DataByADO data = new DataByADO();
+            DataByDapper data = new DataByDapper();
 
             return View(data.GetAllAccountBook());
         }
