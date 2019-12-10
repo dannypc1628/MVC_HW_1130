@@ -31,15 +31,9 @@ namespace MVC_HW_191130.Controllers
 
         public ActionResult Money()
         {
-            int count = 100;
-            List<MoneyViewModel> list = new List<MoneyViewModel>(count);
-            MoneyViewModelRandom randomData = new MoneyViewModelRandom();
-            for(int i = 0; i < count; i++)
-            {
-                list.Add(randomData.Get());
-            }
+            DataByADO data = new DataByADO();
 
-            return View(list);
+            return View(data.GetAllAccountBook());
         }
     }
 }
