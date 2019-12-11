@@ -31,9 +31,18 @@ namespace MVC_HW_191130.Controllers
 
         public ActionResult Money()
         {
-            DataByDapper data = new DataByDapper();
+            SkillTreeHomeworkEntities db = new SkillTreeHomeworkEntities();
 
-            return View(data.GetAllAccountBook());
+            var data = db.AccountBook.ToList();
+            var mappingData = from d in data
+                              select new MoneyViewModel
+                              {
+                                  類別 = CategoryyyConvert.ToStringName(d.Categoryyy),
+                                  時間 = d.Dateee,
+                                  金錢 = d.Amounttt
+                              };
+
+            return View(mappingData.ToList());
         }
     }
 }
