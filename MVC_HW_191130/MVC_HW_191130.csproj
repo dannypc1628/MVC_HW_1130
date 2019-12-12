@@ -157,6 +157,8 @@
     </Compile>
     <Compile Include="Models\MoneyViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\IUnitOfWork.cs" />
     <Compile Include="Service\AccountBookService.cs" />
     <Compile Include="Service\CategoryyyConvert.cs" />
     <Compile Include="Service\MoneyViewModelRandom.cs" />
