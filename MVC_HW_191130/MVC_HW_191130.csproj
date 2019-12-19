@@ -155,11 +155,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBFirstModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\GroupMoneyViewModel.cs" />
     <Compile Include="Models\MoneyViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\IUnitOfWork.cs" />
     <Compile Include="Repository\Repository.cs" />
+    <Compile Include="Repository\UnitOfWork.cs" />
     <Compile Include="Service\AccountBookService.cs" />
     <Compile Include="Service\CategoryyyConvert.cs" />
     <Compile Include="Service\MoneyViewModelRandom.cs" />
@@ -223,6 +225,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_SkillTreeLayout.cshtml" />
     <Content Include="Views\Home\Money.cshtml" />
+    <Content Include="Views\Home\CreateMoney.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
