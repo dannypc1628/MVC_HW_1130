@@ -3,31 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using MVC_HW_191130.Models;
+using MVC_HW_191130.Repository;
 
 namespace MVC_HW_191130.Service
 {
     public class AccountBookService
     {
-        private readonly SkillTreeHomeworkEntities db;
+        private readonly Repository<AccountBook> repository;
 
-        public AccountBookService()
+        public AccountBookService(IUnitOfWork unitOfWork)
         {
-            db = new SkillTreeHomeworkEntities();
+            repository = new Repository<AccountBook>(unitOfWork);
         }
 
         public List<AccountBook> GetAllAccountBooks()
         {
-            return this.db.AccountBook.ToList();
+            return repository.All().ToList();
         }
 
         public AccountBook GetSingleAccountBook(System.Guid Id)
         {
-            return this.db.AccountBook.SingleOrDefault(d => d.Id == Id);
+            return repository.GetSingle(d => d.Id == Id);
         }
 
         public void Add(AccountBook accountBook)
         {
-            db.AccountBook.Add(accountBook);
+            repository.Create(accountBook);
         }
 
         public void Edit(AccountBook old,AccountBook newAccountBook)
@@ -39,13 +40,10 @@ namespace MVC_HW_191130.Service
 
         public void Delete(AccountBook accountBook)
         {
-            db.AccountBook.Remove(accountBook);
+            repository.Remove(accountBook);
         }
 
-        public void Save()
-        {
-            db.SaveChanges();
-        }
+        
 
     }
 }
