@@ -23,18 +23,12 @@ namespace MVC_HW_191130.Service
 
         }
 
-        private string Get類別()
+        private CategoryEnum Get類別()
         {
             Random random = new Random(Guid.NewGuid().GetHashCode());
-            int i = random.Next(100);
-            if (i %2== 0)
-            {
-                return "支出";
-            }
-            else
-            {
-                return "收入";
-            }
+            int i = random.Next(100) % 2;
+            
+            return (CategoryEnum)i;            
         }
 
         private DateTime Get時間()

@@ -10,7 +10,7 @@ namespace MVC_HW_191130.Models
     {
 
         [Display(Name="類別")]
-        public string 類別 { get; set; }
+        public CategoryEnum 類別 { get; set; }
 
         [Display(Name = "日期")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]

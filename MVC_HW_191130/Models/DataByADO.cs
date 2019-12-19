@@ -30,14 +30,10 @@ namespace MVC_HW_191130.Models
                     DbDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        string cate = reader["Categoryyy"].ToString();
-                        if (cate == "0")
-                            cate = "支出";
-                        else
-                            cate = "收入";
+                        
                         result.Add(new MoneyViewModel
                         {
-                            類別 = cate,
+                            類別 = (CategoryEnum)reader["Categoryyy"],
                             時間 = Convert.ToDateTime(reader["Dateee"].ToString()),
                             金錢 = Convert.ToInt32(reader["Amounttt"].ToString())
                         });

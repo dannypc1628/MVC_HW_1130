@@ -138,6 +138,7 @@
     <Compile Include="Models\AccountBook.cs">
       <DependentUpon>DBFirstModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CategoryEnum.cs" />
     <Compile Include="Models\DataByADO.cs" />
     <Compile Include="Models\DataByDapper.cs" />
     <Compile Include="Models\DBFirstModel.Context.cs">

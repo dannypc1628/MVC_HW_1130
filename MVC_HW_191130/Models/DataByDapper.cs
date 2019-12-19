@@ -25,17 +25,10 @@ namespace MVC_HW_191130.Models
                 var selectCommand = "Select Id,Categoryyy,Amounttt,Dateee,Remarkkk From AccountBook";
                 var list = con.Query(selectCommand);
                 foreach (var item in list)
-                {
-                    string cate = "";
-                    if (item.Categoryyy == 1)
-                        cate = "支出";
-                    else
-                        cate = "收入";
-                    
-
+                {                    
                     result.Add(new MoneyViewModel
                     {
-                        類別 = cate,
+                        類別 = (CategoryEnum)item.Categoryyy,
                         時間 = item.Dateee,
                         金錢 = (int)item.Amounttt
                         
