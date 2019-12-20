@@ -6,6 +6,7 @@
     <title>我的記帳本</title>
     <link href="http://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
     @RenderSection("head", required: false)
+    @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
     <div class="navbar navbar-inverse ">
@@ -29,7 +30,7 @@
     </div>
 
     <div class="container body-content">
-                
+
 
         @RenderBody()
 
@@ -39,6 +40,9 @@
         </footer>
     </div>
 
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.1.min.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"></script>

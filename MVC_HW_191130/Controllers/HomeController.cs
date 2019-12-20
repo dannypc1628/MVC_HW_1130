@@ -70,8 +70,20 @@ namespace MVC_HW_191130.Controllers
                        Remarkkk= moneyData.備註
                 });
                 _unitOfWork.Commit();
-            }            
-            return RedirectToAction("Money");
+                return RedirectToAction("Money");
+            }
+            var data = _accountBookService.GetAllAccountBooks();
+            var mappingData = from d in data
+                              select new MoneyViewModel
+                              {
+                                  類別 = (CategoryEnum)d.Categoryyy,
+                                  時間 = d.Dateee,
+                                  金錢 = d.Amounttt,
+                                  備註 = d.Remarkkk
+                              };
+            GroupMoneyViewModel group = new GroupMoneyViewModel { ListMoney = mappingData.ToList() };
+            return View(group);
+
         }
     }
 }
