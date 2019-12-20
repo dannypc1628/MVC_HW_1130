@@ -16,7 +16,17 @@
             var i = 1;
             foreach(var item in Model.ListMoney)
             {
-            <tr>
+                var textColor = "";
+                if ((int)item.類別 == 1)
+                {
+                    textColor = "text-danger";
+                }
+                else
+                {
+                    textColor = "text-primary";
+                }
+            <tr class="@textColor">                 
+                   
                 <th>@(++i)</th>
                 <th>@item.類別</th>
                 <th>@item.時間</th>
