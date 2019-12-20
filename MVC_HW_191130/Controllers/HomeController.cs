@@ -1,5 +1,6 @@
 ﻿using MVC_HW_191130.Models;
 using MVC_HW_191130.Service;
+using MVC_HW_191130.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,16 @@ namespace MVC_HW_191130.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly AccountBookService _accountBookService;
+
+        private readonly UnitOfWork _unitOfWork;
+        
+        public HomeController()
+        {
+            _unitOfWork = new UnitOfWork();
+            _accountBookService = new AccountBookService(_unitOfWork);
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -31,18 +42,35 @@ namespace MVC_HW_191130.Controllers
 
         public ActionResult Money()
         {
-            SkillTreeHomeworkEntities db = new SkillTreeHomeworkEntities();
-
-            var data = db.AccountBook.ToList();
+            var data = _accountBookService.GetAllAccountBooks();
             var mappingData = from d in data
                               select new MoneyViewModel
                               {
-                                  類別 = CategoryyyConvert.ToStringName(d.Categoryyy),
+                                  類別 = (CategoryEnum)d.Categoryyy,
                                   時間 = d.Dateee,
                                   金錢 = d.Amounttt
                               };
+            GroupMoneyViewModel group = new GroupMoneyViewModel { ListMoney = mappingData.ToList() };
+            return View(group);
+        }
 
-            return View(mappingData.ToList());
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Money([Bind(Prefix = "Money")]MoneyViewModel moneyData)
+        {
+            if (ModelState.IsValid)
+            {
+                _accountBookService.Add(new AccountBook
+                {
+                    Id = Guid.NewGuid(),
+                    Categoryyy = (int)moneyData.類別,
+                     Amounttt = moneyData.金錢,
+                      Dateee =moneyData.時間,
+                       Remarkkk=""
+                });
+                _unitOfWork.Commit();
+            }            
+            return RedirectToAction("Money");
         }
     }
 }
