@@ -1,0 +1,38 @@
+﻿@model List<MVC_HW_191130.Models.MoneyViewModel>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>#</th>
+                <th>@Html.DisplayNameFor(m => m[0].類別)</th>
+                <th>@Html.DisplayNameFor(m => m[0].時間)</th>
+                <th>@Html.DisplayNameFor(m => m[0].金錢)</th>
+                <th>@Html.DisplayNameFor(m => m[0].備註)</th>
+            </tr>
+            @{
+                var i = 1;
+                foreach (var item in Model)
+                {
+                    var textColor = "";
+                    if ((int)item.類別 == 1)
+                    {
+                        textColor = "text-danger";
+                    }
+                    else
+                    {
+                        textColor = "text-primary";
+                    }
+                    <tr class="@textColor">
+
+                        <th>@(++i)</th>
+                        <th>@item.類別</th>
+                        <th>@item.時間</th>
+                        <th>@item.金錢</th>
+                        <th>@item.備註</th>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+</div>

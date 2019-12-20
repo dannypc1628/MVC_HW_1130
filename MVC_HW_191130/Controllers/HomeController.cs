@@ -70,7 +70,6 @@ namespace MVC_HW_191130.Controllers
                        Remarkkk= moneyData.備註
                 });
                 _unitOfWork.Commit();
-                return RedirectToAction("Money");
             }
             var data = _accountBookService.GetAllAccountBooks();
             var mappingData = from d in data
@@ -81,9 +80,9 @@ namespace MVC_HW_191130.Controllers
                                   金錢 = d.Amounttt,
                                   備註 = d.Remarkkk
                               };
-            GroupMoneyViewModel group = new GroupMoneyViewModel { ListMoney = mappingData.ToList() };
-            return View(group);
-
+            
+            return PartialView("ListMoney",mappingData.ToList());
+                       
         }
     }
 }

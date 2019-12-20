@@ -1,7 +1,6 @@
 ﻿@model MVC_HW_191130.Models.GroupMoneyViewModel
 
-
-@using (Html.BeginForm())
+@using (Ajax.BeginForm(new AjaxOptions { UpdateTargetId = "ajaxPanel", Url = Url.Action("Money") }))
 {
     @Html.AntiForgeryToken()
     <br>
