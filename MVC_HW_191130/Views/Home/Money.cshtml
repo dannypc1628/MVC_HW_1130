@@ -7,18 +7,21 @@
         <table class="table table-bordered table-hover">
             <tr>
                 <th>#</th>
-                <th>@Html.DisplayNameFor(m=>m.ListMoney[0].類別)</th>
+                <th>@Html.DisplayNameFor(m => m.ListMoney[0].類別)</th>
                 <th>@Html.DisplayNameFor(m => m.ListMoney[0].時間)</th>
-                <th>@Html.DisplayNameFor(m=>m.ListMoney[0].金錢)</th>
+                <th>@Html.DisplayNameFor(m => m.ListMoney[0].金錢)</th>
+                <th>@Html.DisplayNameFor(m => m.ListMoney[0].備註)</th>
             </tr>
         @{
-            for(var i = 0; i < Model.ListMoney.Count; i++)
+            var i = 1;
+            foreach(var item in Model.ListMoney)
             {
             <tr>
-                <th>@(i+1)</th>
-                <th>@Html.DisplayFor(m=>m.ListMoney[i].類別)</th>
-                <th>@Html.DisplayFor(m => m.ListMoney[i].時間)</th>
-                <th>@Html.DisplayFor(m => m.ListMoney[i].金錢)</th>
+                <th>@(++i)</th>
+                <th>@item.類別</th>
+                <th>@item.時間</th>
+                <th>@item.金錢</th>
+                <th>@item.備註</th>
             </tr>
             }
         }

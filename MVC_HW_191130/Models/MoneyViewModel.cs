@@ -19,5 +19,7 @@ namespace MVC_HW_191130.Models
         [Display(Name = "金額")]        
         [DisplayFormat(DataFormatString = "{0:#,#}")]
         public int 金錢 { get; set; }
+                
+        public string 備註 { get; set; }
     }
 }

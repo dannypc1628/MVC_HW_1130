@@ -48,7 +48,8 @@ namespace MVC_HW_191130.Controllers
                               {
                                   類別 = (CategoryEnum)d.Categoryyy,
                                   時間 = d.Dateee,
-                                  金錢 = d.Amounttt
+                                  金錢 = d.Amounttt,
+                                  備註 = d.Remarkkk 
                               };
             GroupMoneyViewModel group = new GroupMoneyViewModel { ListMoney = mappingData.ToList() };
             return View(group);
@@ -66,7 +67,7 @@ namespace MVC_HW_191130.Controllers
                     Categoryyy = (int)moneyData.類別,
                      Amounttt = moneyData.金錢,
                       Dateee =moneyData.時間,
-                       Remarkkk=""
+                       Remarkkk= moneyData.備註
                 });
                 _unitOfWork.Commit();
             }            
