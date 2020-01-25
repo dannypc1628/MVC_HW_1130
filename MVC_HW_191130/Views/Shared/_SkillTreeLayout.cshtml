@@ -4,7 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我的記帳本</title>
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />    
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="~/Content/bootstrap-material-datetimepicker.css" rel="stylesheet"/>
+    
     @RenderSection("head", required: false)
 
 </head>
@@ -47,7 +50,12 @@
     <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     @RenderSection("scripts", required: false)
-
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.js"></script>
+    <script src="~/Scripts/bootstrap-material-datetimepicker.js"></script>
+    <script>
+        $('#datepicker').bootstrapMaterialDatePicker({ weekStart: 0, time: false, year:true, lang: 'zh-tw', format: 'YYYY-MM-DD' });
+    </script>
 
 </body>
 </html>

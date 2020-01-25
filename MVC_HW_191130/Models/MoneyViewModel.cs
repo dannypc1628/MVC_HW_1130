@@ -19,6 +19,7 @@ namespace MVC_HW_191130.Models
         [Remote("Date","Valid",ErrorMessage ="日期不可以超過今天")]
         [DataType(DataType.Date,ErrorMessage ="這不是日期格式")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
+        [UIHint("Date")]
         public DateTime 時間 { get; set; }
 
         [Display(Name = "金額")]
