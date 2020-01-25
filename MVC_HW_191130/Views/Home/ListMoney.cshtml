@@ -12,17 +12,18 @@
                 <th style="text-overflow: ellipsis; max-width:500px;overflow: hidden;">@Html.DisplayNameFor(m => m[0].備註)</th>
             </tr>
             @{
-                var i = 1;
+                var i = 0;
                 foreach (var item in Model)
                 {                    
-                    <tr class="@(BootstrapColorHelper.GetPrimaryOrDanger(item.類別))">
+            <tr class="@(BootstrapColorHelper.GetPrimaryOrDanger(item.類別))">
 
-                        <th>@(++i)</th>
-                        <th>@item.類別</th>
-                        <th>@item.時間</th>
-                        <th>@item.金錢</th>
-                        <th style="text-overflow: ellipsis; max-width:500px;overflow: hidden;">@item.備註</th>
-                    </tr>
+                <th>@(i+1)</th>
+                <th>@Html.DisplayFor(m => m[i].類別)</th>
+                <th>@Html.DisplayFor(m => m[i].時間)</th>
+                <th>@Html.DisplayFor(m => m[i].金錢)</th>
+                <th style="text-overflow: ellipsis; max-width:500px;overflow: hidden;">@item.備註</th>
+            </tr>
+                    i++;
                 }
             }
         </table>
