@@ -1,4 +1,5 @@
 ﻿@model List<MVC_HW_191130.Models.MoneyViewModel>
+@using MVC_HW_191130.Helper
 
 <div class="row">
     <div class="col-md-12">
@@ -8,28 +9,19 @@
                 <th>@Html.DisplayNameFor(m => m[0].類別)</th>
                 <th>@Html.DisplayNameFor(m => m[0].時間)</th>
                 <th>@Html.DisplayNameFor(m => m[0].金錢)</th>
-                <th>@Html.DisplayNameFor(m => m[0].備註)</th>
+                <th style="text-overflow: ellipsis; max-width:500px;overflow: hidden;">@Html.DisplayNameFor(m => m[0].備註)</th>
             </tr>
             @{
                 var i = 1;
                 foreach (var item in Model)
-                {
-                    var textColor = "";
-                    if ((int)item.類別 == 1)
-                    {
-                        textColor = "text-danger";
-                    }
-                    else
-                    {
-                        textColor = "text-primary";
-                    }
-                    <tr class="@textColor">
+                {                    
+                    <tr class="@(BootstrapColorHelper.GetPrimaryOrDanger(item.類別))">
 
                         <th>@(++i)</th>
                         <th>@item.類別</th>
                         <th>@item.時間</th>
                         <th>@item.金錢</th>
-                        <th>@item.備註</th>
+                        <th style="text-overflow: ellipsis; max-width:500px;overflow: hidden;">@item.備註</th>
                     </tr>
                 }
             }
