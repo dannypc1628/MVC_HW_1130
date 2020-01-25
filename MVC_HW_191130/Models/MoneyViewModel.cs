@@ -22,7 +22,7 @@ namespace MVC_HW_191130.Models
         public DateTime 時間 { get; set; }
 
         [Display(Name = "金額")]
-        [Remote("Amount","Valid",ErrorMessage ="請輸入大於0之正整數")]
+        [Range(0,Int32.MaxValue,ErrorMessage ="請輸入大於0之正整數")]
         [DisplayFormat(DataFormatString = "{0:#,#}")]
         public int 金錢 { get; set; }
                 

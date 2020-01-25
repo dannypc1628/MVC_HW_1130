@@ -9,6 +9,7 @@ namespace MVC_HW_191130.Controllers
     public class ValidController : Controller
     {
         // GET: Valid
+        [Obsolete("改用Range就可以做到金錢範圍驗證")]
         public ActionResult Amount([Bind(Prefix = "Money.金錢")]int 金錢)
         {            
             bool isValidate = 金錢 > 0 ;
