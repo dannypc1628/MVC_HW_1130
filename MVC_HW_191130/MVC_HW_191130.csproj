@@ -130,6 +130,8 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\admin\adminAreaRegistration.cs" />
+    <Compile Include="Areas\admin\Controllers\AccountBooksController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValidController.cs" />
     <Compile Include="Global.asax.cs">
@@ -203,6 +205,14 @@
     <Content Include="Models\DBFirstModel.edmx.diagram">
       <DependentUpon>DBFirstModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\admin\Views\web.config" />
+    <Content Include="Areas\admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\admin\Views\AccountBooks\Create.cshtml" />
+    <Content Include="Areas\admin\Views\AccountBooks\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\AccountBooks\Details.cshtml" />
+    <Content Include="Areas\admin\Views\AccountBooks\Edit.cshtml" />
+    <Content Include="Areas\admin\Views\AccountBooks\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\easy-numpad.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -257,6 +267,7 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Areas\admin\Models\" />
     <Folder Include="Views\Valid\" />
   </ItemGroup>
   <PropertyGroup>
