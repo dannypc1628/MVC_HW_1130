@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    
 </p>
 <table class="table">
     <tr>
@@ -37,13 +37,12 @@
         <td>
             @Html.DisplayFor(modelItem => item.Dateee)
         </td>
-        <td>
+        <td style="text-overflow: ellipsis; max-width:500px;overflow: hidden;">
             @Html.DisplayFor(modelItem => item.Remarkkk)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("編輯", "Edit", new { id=item.Id }) |            
+            @Html.ActionLink("刪除", "Delete", new { id=item.Id })
         </td>
     </tr>
 }

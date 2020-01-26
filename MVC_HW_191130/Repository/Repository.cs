@@ -28,7 +28,7 @@ namespace MVC_HW_191130.Repository
 
         public T GetSingle(Expression<Func<T, bool>> filter)
         {
-            return ObjectSet.SingleOrDefault();
+            return ObjectSet.SingleOrDefault(filter);
         }
 
         public void Create(T entity)

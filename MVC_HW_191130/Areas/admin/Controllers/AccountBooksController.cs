@@ -26,47 +26,12 @@ namespace MVC_HW_191130.Areas.admin.Controllers
         // GET: admin/AccountBooks
         public ActionResult Index()
         {
-            return View(db.AccountBook.ToList());
+            return View(_service.GetAllAccountBooks());
         }
 
-        // GET: admin/AccountBooks/Details/5
-        public ActionResult Details(Guid? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            AccountBook accountBook = db.AccountBook.Find(id);
-            if (accountBook == null)
-            {
-                return HttpNotFound();
-            }
-            return View(accountBook);
-        }
+        
 
-        // GET: admin/AccountBooks/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: admin/AccountBooks/Create
-        // 若要免於過量張貼攻擊，請啟用想要繫結的特定屬性，如需
-        // 詳細資訊，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Categoryyy,Amounttt,Dateee,Remarkkk")] AccountBook accountBook)
-        {
-            if (ModelState.IsValid)
-            {
-                accountBook.Id = Guid.NewGuid();
-                db.AccountBook.Add(accountBook);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(accountBook);
-        }
+      
 
         // GET: admin/AccountBooks/Edit/5
         public ActionResult Edit(Guid? id)
@@ -75,7 +40,7 @@ namespace MVC_HW_191130.Areas.admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AccountBook accountBook = db.AccountBook.Find(id);
+            AccountBook accountBook = _service.GetSingleAccountBook((Guid)id);
             if (accountBook == null)
             {
                 return HttpNotFound();
@@ -92,8 +57,9 @@ namespace MVC_HW_191130.Areas.admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(accountBook).State = EntityState.Modified;
-                db.SaveChanges();
+                AccountBook oldBook = _service.GetSingleAccountBook(accountBook.Id);
+                _service.Edit(oldBook, accountBook);
+                _unitOfWork.Commit();
                 return RedirectToAction("Index");
             }
             return View(accountBook);
@@ -106,7 +72,7 @@ namespace MVC_HW_191130.Areas.admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AccountBook accountBook = db.AccountBook.Find(id);
+            AccountBook accountBook = _service.GetSingleAccountBook((Guid)id);
             if (accountBook == null)
             {
                 return HttpNotFound();
@@ -119,9 +85,9 @@ namespace MVC_HW_191130.Areas.admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
-            AccountBook accountBook = db.AccountBook.Find(id);
-            db.AccountBook.Remove(accountBook);
-            db.SaveChanges();
+            AccountBook accountBook = _service.GetSingleAccountBook(id);
+            _service.Delete(accountBook);
+            _unitOfWork.Commit();
             return RedirectToAction("Index");
         }
 
@@ -129,7 +95,7 @@ namespace MVC_HW_191130.Areas.admin.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                _unitOfWork.Dispose();
             }
             base.Dispose(disposing);
         }

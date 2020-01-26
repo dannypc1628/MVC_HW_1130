@@ -36,6 +36,7 @@ namespace MVC_HW_191130.Service
             old.Categoryyy = newAccountBook.Categoryyy;
             old.Amounttt = newAccountBook.Amounttt;
             old.Dateee = newAccountBook.Dateee;
+            old.Remarkkk = newAccountBook.Remarkkk;
         }
 
         public void Delete(AccountBook accountBook)

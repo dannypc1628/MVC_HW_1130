@@ -208,9 +208,7 @@
     <Content Include="Areas\admin\Views\web.config" />
     <Content Include="Areas\admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\admin\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\admin\Views\AccountBooks\Create.cshtml" />
     <Content Include="Areas\admin\Views\AccountBooks\Delete.cshtml" />
-    <Content Include="Areas\admin\Views\AccountBooks\Details.cshtml" />
     <Content Include="Areas\admin\Views\AccountBooks\Edit.cshtml" />
     <Content Include="Areas\admin\Views\AccountBooks\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
