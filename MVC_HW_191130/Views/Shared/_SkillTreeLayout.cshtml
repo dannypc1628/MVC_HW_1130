@@ -6,8 +6,9 @@
     <title>我的記帳本</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="~/Content/bootstrap-material-datetimepicker.css" rel="stylesheet"/>
-    
+    <link href="~/Content/bootstrap-material-datetimepicker.css" rel="stylesheet" />
+    <link href="~/Content/easy-numpad.min.css" rel="stylesheet" />
+
     @RenderSection("head", required: false)
 
 </head>
@@ -53,6 +54,7 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.js"></script>
     <script src="~/Scripts/bootstrap-material-datetimepicker.js"></script>
+    <script src="~/Scripts/easy-numpad.js"></script>
     <script>
         $('#datepicker').bootstrapMaterialDatePicker({ weekStart: 0, time: false, year:true, lang: 'zh-tw', format: 'YYYY-MM-DD' });
     </script>

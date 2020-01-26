@@ -25,6 +25,7 @@ namespace MVC_HW_191130.Models
         [Display(Name = "金額")]
         [Range(0,Int32.MaxValue,ErrorMessage ="請輸入大於0之正整數")]
         [DisplayFormat(DataFormatString = "{0:#,#}")]
+        [UIHint("NumberPad")]
         public int 金錢 { get; set; }
                 
         [MaxLength(100,ErrorMessage ="最多輸入100個字元")]

@@ -1,0 +1,7 @@
+﻿@model int?
+@{
+    var value = Model.HasValue ? Model.Value.ToString() : "";
+}
+<div class="easy-get">
+    @Html.TextBox("", value, new { @class = "form-control easy-put" })
+</div>
