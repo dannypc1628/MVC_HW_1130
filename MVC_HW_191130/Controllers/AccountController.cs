@@ -449,7 +449,8 @@ namespace MVC_HW_191130.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            // 不曉得為什麼RedirectToRoute("Default")不會跳到預設的Default路由;
+            return RedirectToRoute("Default", new { controller = "", action = "" });
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult
