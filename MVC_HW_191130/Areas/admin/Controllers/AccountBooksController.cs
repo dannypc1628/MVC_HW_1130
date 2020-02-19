@@ -6,12 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using MVC_HW_191130.Attribute;
 using MVC_HW_191130.Models;
 using MVC_HW_191130.Repository;
 using MVC_HW_191130.Service;
 
 namespace MVC_HW_191130.Areas.admin.Controllers
 {
+    [MyAuthorize(Roles ="Admin")]
     public class AccountBooksController : Controller
     {
         private readonly AccountBookService _service ;
