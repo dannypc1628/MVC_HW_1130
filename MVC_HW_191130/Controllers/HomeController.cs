@@ -43,21 +43,28 @@ namespace MVC_HW_191130.Controllers
         public ActionResult Money()
         {
             var data = _accountBookService.GetAllAccountBooks();
-            var mappingData = from d in data
+            var ListMoneyViewModel = from d in data
                               select new MoneyViewModel
                               {
                                   類別 = (CategoryEnum)d.Categoryyy,
                                   時間 = d.Dateee,
                                   金錢 = d.Amounttt,
                                   備註 = d.Remarkkk 
-                              };
-            GroupMoneyViewModel group = new GroupMoneyViewModel { ListMoney = mappingData.ToList() };
-            return View(group);
+                              };            
+            return View(ListMoneyViewModel);
+        }
+
+        [Authorize]
+        [ChildActionOnly]
+        public ActionResult CreateMoney()
+        {          
+            return PartialView();
         }
 
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
-        public ActionResult Money([Bind(Prefix = "Money")]MoneyViewModel moneyData)
+        public ActionResult CreateMoney(MoneyViewModel moneyData)
         {
             if (ModelState.IsValid)
             {

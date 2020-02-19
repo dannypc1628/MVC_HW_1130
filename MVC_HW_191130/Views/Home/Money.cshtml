@@ -1,9 +1,12 @@
-﻿@model MVC_HW_191130.Models.GroupMoneyViewModel
+﻿@model IEnumerable<MVC_HW_191130.Models.MoneyViewModel>
 
-@Html.Partial("CreateMoney")
+@if (HttpContext.Current.Request.IsAuthenticated)
+{
+    @Html.Action("CreateMoney")
+}
 
 <div id="ajaxPanel">
-    @Html.Partial("ListMoney", Model.ListMoney)
+    @Html.Partial("ListMoney", Model)
 </div>
 
 @section Scripts {    
