@@ -1,6 +1,6 @@
-﻿@model MVC_HW_191130.Models.GroupMoneyViewModel
+﻿@model MVC_HW_191130.Models.MoneyViewModel
 
-@using (Ajax.BeginForm(new AjaxOptions { UpdateTargetId = "ajaxPanel", Url = Url.Action("Money") }))
+@using (Ajax.BeginForm(new AjaxOptions { UpdateTargetId = "ajaxPanel", Url = Url.Action("CreateMoney") }))
 {
     @Html.AntiForgeryToken()
     <br>
@@ -8,34 +8,34 @@
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.Money.類別, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.類別, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.Money.類別, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Money.類別, "", new { @class = "text-danger" })
+                @Html.EnumDropDownListFor(model => model.類別, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.類別, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Money.時間, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.時間, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Money.時間, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Money.時間, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.時間, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.時間, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Money.金錢, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.金錢, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Money.金錢, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Money.金錢, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.金錢, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.金錢, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Money.備註, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.備註, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Money.備註, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Money.備註, "", new { @class = "text-danger" })
+                @Html.TextAreaFor(model => model.備註, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.備註, "", new { @class = "text-danger" })
             </div>
         </div>
 

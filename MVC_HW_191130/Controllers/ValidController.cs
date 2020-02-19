@@ -10,13 +10,13 @@ namespace MVC_HW_191130.Controllers
     {
         // GET: Valid
         [Obsolete("改用Range就可以做到金錢範圍驗證")]
-        public ActionResult Amount([Bind(Prefix = "Money.金錢")]int 金錢)
+        public ActionResult Amount(int 金錢)
         {            
             bool isValidate = 金錢 > 0 ;
             return Json(isValidate, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult Date([Bind(Prefix = "Money.時間")]DateTime 時間)
+        public ActionResult Date(DateTime 時間)
         {            
             bool isValidate = 時間 <= DateTime.Now;
             return Json(isValidate, JsonRequestBehavior.AllowGet);

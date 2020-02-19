@@ -1,4 +1,4 @@
-﻿@model List<MVC_HW_191130.Models.MoneyViewModel>
+﻿@model IEnumerable<MVC_HW_191130.Models.MoneyViewModel>
 @using MVC_HW_191130.Helper
 
 <div class="row">
@@ -6,10 +6,10 @@
         <table class="table table-bordered table-hover">
             <tr>
                 <th>#</th>
-                <th>@Html.DisplayNameFor(m => m[0].類別)</th>
-                <th>@Html.DisplayNameFor(m => m[0].時間)</th>
-                <th>@Html.DisplayNameFor(m => m[0].金錢)</th>
-                <th style="text-overflow: ellipsis; max-width:500px;overflow: hidden;">@Html.DisplayNameFor(m => m[0].備註)</th>
+                <th>@Html.DisplayNameFor(m => m.類別)</th>
+                <th>@Html.DisplayNameFor(m => m.時間)</th>
+                <th>@Html.DisplayNameFor(m => m.金錢)</th>
+                <th style="text-overflow: ellipsis; max-width:500px;overflow: hidden;">@Html.DisplayNameFor(m => m.備註)</th>
             </tr>
             @{
                 var i = 0;
@@ -18,9 +18,9 @@
             <tr class="@(BootstrapColorHelper.GetPrimaryOrDanger(item.類別))">
 
                 <th>@(i+1)</th>
-                <th>@Html.DisplayFor(m => m[i].類別)</th>
-                <th>@Html.DisplayFor(m => m[i].時間)</th>
-                <th>@Html.DisplayFor(m => m[i].金錢)</th>
+                <th>@Html.DisplayFor(m => item.類別)</th>
+                <th>@Html.DisplayFor(m => item.時間)</th>
+                <th>@Html.DisplayFor(m => item.金錢)</th>
                 <th style="text-overflow: ellipsis; max-width:500px;overflow: hidden;">@item.備註</th>
             </tr>
                     i++;
