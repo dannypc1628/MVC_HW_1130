@@ -392,7 +392,7 @@ namespace MVC_HW_191130.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToRoute("Default", new { controller = "", action = "" });
         }
 
         //
