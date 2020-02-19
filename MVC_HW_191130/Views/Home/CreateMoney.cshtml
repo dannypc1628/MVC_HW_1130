@@ -1,6 +1,6 @@
 ﻿@model MVC_HW_191130.Models.MoneyViewModel
 
-@using (Ajax.BeginForm(new AjaxOptions { UpdateTargetId = "ajaxPanel", Url = Url.Action("CreateMoney") }))
+@using (Ajax.BeginForm(new AjaxOptions { UpdateTargetId = "ajaxPanel", Url = Url.Action("CreateMoney"), OnSuccess="clearAllInputBox()" }))
 {
     @Html.AntiForgeryToken()
     <br>

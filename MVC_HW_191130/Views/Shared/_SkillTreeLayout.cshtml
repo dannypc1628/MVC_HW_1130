@@ -59,6 +59,19 @@
     <script>
         $('#datepicker').bootstrapMaterialDatePicker({ weekStart: 0, time: false, year:true, lang: 'zh-tw', format: 'YYYY-MM-DD' });
     </script>
+    <script>
+        function clearAllInputBox() {
+            console.log("success do clear")
+            var remark = document.getElementsByName("備註");
+            remark[0].value = '';
+            var money = document.getElementsByName("金錢");
+            money[0].value = '';
+            var time = document.getElementsByName("時間");
+            time[0].value = '';
+            var cata = document.getElementsByName("類別");
+            cata[0].value = 0; 
+        }
+    </script>
 
 </body>
 </html>
